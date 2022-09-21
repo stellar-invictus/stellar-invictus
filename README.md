@@ -1,4 +1,4 @@
-# WARNING: This is the first version of Stellar Invictus when it was text-based. The new & current Stellar Invictus is a private repository.
+### WARNING: This is the first version of Stellar Invictus when it was text-based. The new & current Stellar Invictus is a private repository.
 
 <div align="center">
   <br>

@@ -1,4 +1,5 @@
 <% @locations.each do |loc| %>
+  <% next unless loc %>
   <% location = Location.find(loc) %>
   <% ships = Spaceship.where(user: current_user, location: location) %>
   <% items = location.get_items(current_user.id) %>

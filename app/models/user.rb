@@ -133,6 +133,8 @@ class User < ApplicationRecord
   scope :in_name_order, -> { order(:family_name, :name) }
   scope :in_space, -> { where(docked: false) }
 
+  serialize :route, Array
+
   ## -- CALLBACKS
   # Sets full name after create
   before_save do

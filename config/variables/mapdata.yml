@@ -266,80 +266,221 @@ jumpgates:
     from: 23
     to: 24
   33:
-    from: 23
-    to: 21
-  34:
     from: 36
+    to: 37
+  34:
+    from: 23
     to: 37
   35:
-    from: 23
-    to: 37
-  36:
     from: 37
     to: 41
+  36:
+    from: 41
+    to: 42
   37:
     from: 41
-    to: 42
-  38:
-    from: 41
     to: 28
-  39:
+  38:
     from: 42
     to: 26
-  40:
+  39:
     from: 26
     to: 15
-  41:
+  40:
     from: 15
     to: 14
-  42:
+  41:
     from: 16
     to: 15
-  43:
+  42:
     from: 16
     to: 14
-  44:
+  43:
     from: 14
     to: 13
-  45:
+  44:
     from: 12
     to: 13
-  46:
+  45:
     from: 11
     to: 12
-  47:
+  46:
     from: 10
     to: 11
-  48:
+  47:
     from: 27
     to: 42
-  49:
+  48:
     from: 27
     to: 12
-  50:
+  49:
     from: 28
     to: 10
-  51:
+  50:
     from: 28
     to: 29
-  52:
+  51:
     from: 29
     to: 40
-  53:
+  52:
     from: 40
     to: 39
-  54:
+  53:
     from: 38
     to: 39
-  55:
+  54:
     from: 36
     to: 38
-  56:
+  55:
     from: 40
     to: 41
-  57:
+  56:
     from: 34
     to: 22
+  57:
+    from: 38
+    to: 40
   58:
+    from: 1
+    to: 2
+  59:
+    from: 1
+    to: 6
+  60:
+    from: 2
+    to: 3
+  61:
+    from: 2
+    to: 7
+  62:
+    from: 7
+    to: 6
+  63:
+    from: 3
+    to: 8
+  64:
+    from: 8
+    to: 5
+  65:
+    from: 5
+    to: 4
+  66:
+    from: 4
+    to: 9
+  67:
+    from: 8
+    to: 9
+  68:
+    from: 6
+    to: 17
+  69:
+    from: 7
+    to: 19
+  70:
+    from: 9
+    to: 21
+  71:
+    from: 32
+    to: 18
+  72:
+    from: 18
+    to: 30
+  73:
+    from: 30
+    to: 19
+  74:
+    from: 19
+    to: 20
+  75:
+    from: 20
+    to: 22
+  76:
+    from: 21
+    to: 20
+  77:
+    from: 23
+    to: 21
+  78:
+    from: 32
+    to: 33
+  79:
+    from: 33
+    to: 31
+  80:
+    from: 31
+    to: 30
+  81:
+    from: 33
+    to: 35
+  82:
+    from: 35
+    to: 25
+  83:
+    from: 25
+    to: 24
+  84:
+    from: 25
+    to: 26
+  85:
+    from: 24
+    to: 22
+  86:
+    from: 23
+    to: 24
+  87:
+    from: 36
+    to: 37
+  88:
+    from: 37
+    to: 41
+  89:
+    from: 41
+    to: 42
+  90:
+    from: 41
+    to: 28
+  91:
+    from: 42
+    to: 26
+  92:
+    from: 26
+    to: 15
+  93:
+    from: 15
+    to: 14
+  94:
+    from: 16
+    to: 15
+  95:
+    from: 14
+    to: 13
+  96:
+    from: 12
+    to: 13
+  97:
+    from: 10
+    to: 11
+  98:
+    from: 27
+    to: 12
+  99:
+    from: 28
+    to: 29
+  100:
+    from: 29
+    to: 40
+  101:
+    from: 38
+    to: 39
+  102:
+    from: 36
+    to: 38
+  103:
+    from: 40
+    to: 41
+  104:
+    from: 34
+    to: 22
+  105:
     from: 38
     to: 40

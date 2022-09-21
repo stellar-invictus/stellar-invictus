@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '3.1.2'
 
-gem 'rails'
+gem 'rails', '6.1.7'
 gem 'sassc-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jquery-rails'
-gem 'redis'
+gem 'redis', '4.5.0'
 gem 'puma'
 
 # Docker
@@ -79,3 +79,6 @@ gem 'rubocop-rspec'
 # For Service Object functionality
 gem 'dry-initializer'
 gem 'dry-monads'
+gem 'net-smtp'
+gem 'matrix'
+gem 'sqlite3'

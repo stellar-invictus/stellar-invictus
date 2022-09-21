@@ -2,21 +2,18 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_04_09_154055) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "asteroids", force: :cascade do |t|
-    t.bigint "location_id"
+    t.integer "location_id"
     t.integer "asteroid_type"
     t.integer "resources"
     t.datetime "created_at", null: false
@@ -28,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
   create_table "blueprints", force: :cascade do |t|
     t.string "loader"
     t.float "efficiency", default: 1.5
-    t.bigint "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["loader"], name: "index_blueprints_on_loader"
@@ -36,23 +33,23 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
   end
 
   create_table "chat_messages", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "chat_room_id"
+    t.integer "chat_room_id"
     t.index ["chat_room_id"], name: "index_chat_messages_on_chat_room_id"
     t.index ["user_id"], name: "index_chat_messages_on_user_id"
   end
 
   create_table "chat_rooms", force: :cascade do |t|
     t.string "title"
-    t.bigint "location_id"
+    t.integer "location_id"
     t.integer "chatroom_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "identifier"
-    t.bigint "system_id"
+    t.integer "system_id"
     t.index ["chatroom_type"], name: "index_chat_rooms_on_chatroom_type"
     t.index ["identifier"], name: "index_chat_rooms_on_identifier", unique: true
     t.index ["location_id"], name: "index_chat_rooms_on_location_id"
@@ -67,8 +64,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
   end
 
   create_table "corp_applications", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "corporation_id"
+    t.integer "user_id"
+    t.integer "corporation_id"
     t.text "application_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
     t.text "motd"
     t.integer "units", default: 0
     t.float "tax", default: 0.0
-    t.bigint "chat_room_id"
+    t.integer "chat_room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_room_id"], name: "index_corporations_on_chat_room_id"
@@ -94,8 +91,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
   create_table "craft_jobs", force: :cascade do |t|
     t.datetime "completed_at"
     t.string "loader"
-    t.bigint "user_id"
-    t.bigint "location_id"
+    t.integer "user_id"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["completed_at"], name: "index_craft_jobs_on_completed_at"
@@ -108,13 +105,13 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "location_id"
+    t.integer "location_id"
     t.index ["location_id"], name: "index_factions_on_location_id"
   end
 
   create_table "finance_histories", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "corporation_id"
+    t.integer "user_id"
+    t.integer "corporation_id"
     t.integer "amount"
     t.integer "action"
     t.datetime "created_at", null: false
@@ -124,8 +121,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
   end
 
   create_table "fleets", force: :cascade do |t|
-    t.bigint "chat_room_id"
-    t.bigint "user_id"
+    t.integer "chat_room_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chat_room_id"], name: "index_fleets_on_chat_room_id"
@@ -156,16 +153,16 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "location_id"
-    t.bigint "spaceship_id"
+    t.integer "user_id"
+    t.integer "location_id"
+    t.integer "spaceship_id"
     t.string "loader"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "structure_id"
     t.boolean "equipped", default: false
     t.boolean "active", default: false
-    t.bigint "mission_id"
+    t.integer "mission_id"
     t.integer "count", default: 1
     t.index ["loader"], name: "index_items_on_loader"
     t.index ["location_id"], name: "index_items_on_location_id"
@@ -187,12 +184,12 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
-    t.bigint "system_id"
+    t.integer "system_id"
     t.integer "location_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "faction_id"
-    t.bigint "mission_id"
+    t.integer "faction_id"
+    t.integer "mission_id"
     t.boolean "hidden", default: false
     t.integer "enemy_amount", default: 0
     t.integer "station_type"
@@ -210,10 +207,10 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
     t.integer "listing_type"
     t.integer "price"
     t.integer "amount"
-    t.bigint "location_id"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.integer "order_type", default: 0
     t.index ["listing_type"], name: "index_market_listings_on_listing_type"
     t.index ["location_id"], name: "index_market_listings_on_location_id"
@@ -230,9 +227,9 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
     t.integer "reward"
     t.integer "deliver_to"
     t.integer "mission_location_id"
-    t.bigint "faction_id"
-    t.bigint "user_id"
-    t.bigint "location_id"
+    t.integer "faction_id"
+    t.integer "user_id"
+    t.integer "location_id"
     t.integer "difficulty"
     t.integer "enemy_amount"
     t.string "mission_loader"
@@ -250,7 +247,7 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
 
   create_table "npcs", force: :cascade do |t|
     t.integer "npc_type"
-    t.bigint "location_id"
+    t.integer "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "target_id"
@@ -278,14 +275,14 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
   end
 
   create_table "spaceships", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.string "name"
     t.integer "hp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "warp_scrambled", default: false
     t.integer "warp_target_id"
-    t.bigint "location_id"
+    t.integer "location_id"
     t.boolean "insured", default: false
     t.string "custom_name"
     t.integer "level", default: 0
@@ -295,8 +292,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
 
   create_table "structures", force: :cascade do |t|
     t.integer "structure_type"
-    t.bigint "location_id"
-    t.bigint "user_id"
+    t.integer "location_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "riddle"
@@ -329,11 +326,11 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.bigint "faction_id"
-    t.bigint "system_id"
+    t.integer "faction_id"
+    t.integer "system_id"
     t.integer "online", default: 0
     t.string "avatar"
-    t.bigint "location_id"
+    t.integer "location_id"
     t.boolean "in_warp", default: false
     t.integer "units", default: 10
     t.string "full_name"
@@ -345,14 +342,14 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
     t.boolean "is_attacking"
     t.datetime "last_action"
     t.text "bio"
-    t.bigint "fleet_id"
+    t.integer "fleet_id"
     t.integer "bounty", default: 0
     t.integer "bounty_claimed", default: 0
-    t.string "route", default: [], array: true
+    t.string "route", default: "--- []\n"
     t.float "reputation_1", default: 0.0
     t.float "reputation_2", default: 0.0
     t.float "reputation_3", default: 0.0
-    t.bigint "corporation_id"
+    t.integer "corporation_id"
     t.integer "corporation_role", default: 0
     t.boolean "admin"
     t.boolean "banned"
@@ -376,19 +373,8 @@ ActiveRecord::Schema.define(version: 2019_04_09_154055) do
     t.index ["system_id"], name: "index_users_on_system_id"
   end
 
-  create_table "votes", id: :serial, force: :cascade do |t|
-    t.string "votable_type"
-    t.integer "votable_id"
-    t.string "voter_type"
-    t.integer "voter_id"
-    t.boolean "vote_flag"
-    t.string "vote_scope"
-    t.integer "vote_weight"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
-  end
+# Could not dump table "votes" because of following StandardError
+#   Unknown type 'serial' for column 'id'
 
   add_foreign_key "asteroids", "locations"
   add_foreign_key "blueprints", "users"
