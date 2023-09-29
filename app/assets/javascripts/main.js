@@ -176,28 +176,26 @@ $(document).on("turbolinks:load", function() {
   });
 
   // Enable Button after User aggreed to Privacy Policy
-  // $("#privpolCheck").change(function() {
-  //   if (
-  //     $(this).prop("checked") &&
-  //     $("#tosCheck").prop("checked") &&
-  //     captchaCheck
-  //   ) {
-  //     $(".enlist-btn").prop("disabled", false);
-  //   } else {
-  //     $(".enlist-btn").prop("disabled", true);
-  //   }
-  // });
-  // $("#tosCheck").change(function() {
-  //   if (
-  //     $(this).prop("checked") &&
-  //     $("#privpolCheck").prop("checked") &&
-  //     captchaCheck
-  //   ) {
-  //     $(".enlist-btn").prop("disabled", false);
-  //   } else {
-  //     $(".enlist-btn").prop("disabled", true);
-  //   }
-  // });
+  $("#privpolCheck").change(function() {
+    if (
+      $(this).prop("checked") &&
+      $("#tosCheck").prop("checked")
+    ) {
+      $(".enlist-btn").prop("disabled", false);
+    } else {
+      $(".enlist-btn").prop("disabled", true);
+    }
+  });
+  $("#tosCheck").change(function() {
+    if (
+      $(this).prop("checked") &&
+      $("#privpolCheck").prop("checked")
+    ) {
+      $(".enlist-btn").prop("disabled", false);
+    } else {
+      $(".enlist-btn").prop("disabled", true);
+    }
+  });
 
   // Multilevel Dropdowns
   $(".station-card").on("click", ".dropdown-menu a.dropdown-toggle", function(
