@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
+  # prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
 
   private
   def check_captcha

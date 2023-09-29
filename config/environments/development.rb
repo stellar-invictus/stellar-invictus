@@ -60,7 +60,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Devise Mailer
-  config.action_mailer.default_url_options = { host: 'www.example.com' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # Bullet
   config.after_initialize do

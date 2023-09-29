@@ -95,10 +95,10 @@
             </label>
           </div>
           
-          <%= recaptcha_tags callback: 'recaptcha_callback' %>
+          <%#= recaptcha_tags callback: 'recaptcha_callback' %>
         
           <div class="actions float-right mt-3">
-            <%= button_tag( class: 'btn btn-primary btn-load enlist-btn', disabled: true) do %>
+            <%= button_tag( class: 'btn btn-primary btn-load enlist-btn') do %>
               <span><%= I18n.t('devise.enlist_now') %></span>
               &nbsp;<i class="fas fa-arrow-right"></i>
             <% end %>
