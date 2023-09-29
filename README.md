@@ -1,3 +1,14 @@
+# Note from Dean
+If you're trying to run this locally, you'll need to do the following:
+
+Follow the setup to get docker and stuff working, as outlined below.
+
+Then when you run the server, you can create a user account.
+
+After you create the account, you'll need to navigate to:
+`http://localhost:3000/rails/mailers/devise_mailer/confirmation_instructions`
+This URL will allow you to confirm your accounts. If you need more information, look up a basic tutorial on confirmation emails with Devise. I'm not sure if this is the best way to do it, but it works for now.
+
 ### WARNING: This is the first version of Stellar Invictus when it was text-based. The new & current Stellar Invictus is a private repository.
 
 <div align="center">
