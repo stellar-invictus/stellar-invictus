@@ -187,3 +187,13 @@ thomas_french_description = "<p><strong>THOMAS FRENCH - INTREPID TRADE PIONEER</
 
 <p>The galaxy honors the memory of Thomas French with this monument.</p>"
 Structure.find_or_create_by(location: Location.where(name: 'The Lithium Exchange').first, structure_type: :monument, name: 'Thomas French Monument', description: thomas_french_description)
+
+# Create some asteroids for the asteroid belts
+Location.where(location_type: 1).each do |loc|
+  rand(1..2).times do
+    Asteroid.create(
+      location: loc,
+      asteroid_type: Asteroid.asteroid_types.keys.sample,
+      resources: rand(1..1000))
+  end
+end

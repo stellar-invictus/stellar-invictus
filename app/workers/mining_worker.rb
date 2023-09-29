@@ -39,16 +39,23 @@ class MiningWorker < ApplicationWorker
 
     else
 
-      # Remove amount from asteroids ressources
-      mining_amount = asteroid.resources / 100 unless asteroid.resources >= 100 * mining_amount
-      asteroid.update(resources: asteroid.resources - (100 * mining_amount))
+      # Calculate mining_amount based on existing logic or available resources
+      if asteroid.resources >= 100
+        mining_amount = 1  # or whatever the standard mining_amount should be
+      else
+        mining_amount = 1  # you will still get 1 unit, even if fewer than 100 resources are left
+      end
 
-      # Add Items to player
+      # Update asteroid resources
+      asteroid.update(resources: [asteroid.resources - (100 * mining_amount), 0].max)
+
+      # Add Items to player, still respecting ship capacity
       if player.ship.get_free_weight < mining_amount
         Item::GiveToUser.(loader: "asteroid.#{asteroid.asteroid_type}_ore", amount: player.ship.get_free_weight, user: player)
       else
         Item::GiveToUser.(loader: "asteroid.#{asteroid.asteroid_type}_ore", amount: mining_amount, user: player)
       end
+
 
       # Log
       player.broadcast(:update_asteroid_resources, resources: asteroid.resources)
